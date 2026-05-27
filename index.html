@@ -14,6 +14,7 @@
   --glow:rgba(123,47,255,0.4);--text:#f0e8ff;--muted:#6b5a8a;--faint:#1a1230;
   --g1:#22c55e;--g2:#4ade80;
   --o1:#f59e0b;--o2:#fbbf24;--o3:#fde68a;
+  --c1:#06b6d4;--c2:#22d3ee;--c3:#a5f3fc;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -80,6 +81,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .tab-btn:hover{color:var(--a2);border-color:var(--border);background:rgba(123,47,255,.08)}
 .tab-btn.active{color:var(--a3);border-color:var(--a1);background:rgba(123,47,255,.12);box-shadow:0 0 24px rgba(123,47,255,.3),inset 0 0 20px rgba(123,47,255,.08)}
 .tab-btn.active-red{color:var(--r3)!important;border-color:var(--r2)!important;background:rgba(255,60,60,.1)!important;box-shadow:0 0 24px rgba(255,60,60,.3),inset 0 0 20px rgba(255,60,60,.08)!important}
+.tab-btn.active-cyan{color:var(--c3)!important;border-color:var(--c2)!important;background:rgba(6,182,212,.1)!important;box-shadow:0 0 24px rgba(6,182,212,.3),inset 0 0 20px rgba(6,182,212,.08)!important}
 .tab-panel{display:none;animation:panelIn .45s cubic-bezier(.16,1,.3,1) both}
 .tab-panel.active{display:block}
 @keyframes panelIn{from{opacity:0;transform:translateY(18px) scale(.99)}to{opacity:1;transform:none}}
@@ -97,22 +99,35 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .card-red::after{background:radial-gradient(ellipse 60% 40% at 90% 10%,rgba(255,60,60,.1),transparent),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(200,20,20,.05),transparent)}
 .card-red:hover{box-shadow:0 0 80px rgba(255,60,60,.2),0 20px 60px rgba(0,0,0,.5)}
 .card-red .card-corner-gfx{background:radial-gradient(circle,rgba(255,60,60,.2) 0%,transparent 70%)}
+
+/* CARD CYAN — xCleaner */
+.card-cyan{background:linear-gradient(160deg,rgba(2,12,18,.95) 0%,rgba(10,7,26,.9) 60%);border-color:rgba(6,182,212,.25)}
+.card-cyan::before{background:linear-gradient(90deg,transparent 0%,var(--c1) 30%,var(--c2) 60%,transparent 100%)}
+.card-cyan::after{background:radial-gradient(ellipse 60% 40% at 90% 10%,rgba(6,182,212,.12),transparent),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(0,180,200,.05),transparent)}
+.card-cyan:hover{box-shadow:0 0 80px rgba(6,182,212,.2),0 20px 60px rgba(0,0,0,.5)}
+.card-cyan .card-corner-gfx{background:radial-gradient(circle,rgba(6,182,212,.2) 0%,transparent 70%)}
+
 .product-header{display:flex;align-items:center;gap:24px;margin-bottom:32px;position:relative;z-index:1}
 .product-icon{width:72px;height:72px;border-radius:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.9rem;background:linear-gradient(135deg,#3a0a8a,#7b2fff);box-shadow:0 0 30px rgba(123,47,255,.5),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden;animation:icon-float 4s ease infinite alternate}
 .product-icon::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent 50%)}
 .product-icon-red{background:linear-gradient(135deg,#5a0000,#c41a1a)!important;box-shadow:0 0 30px rgba(255,60,60,.5),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-red 4s ease infinite alternate!important}
+.product-icon-cyan{background:linear-gradient(135deg,#013a40,#0e7490)!important;box-shadow:0 0 30px rgba(6,182,212,.5),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-cyan 4s ease infinite alternate!important}
 @keyframes icon-float{from{box-shadow:0 0 20px rgba(123,47,255,.4);transform:rotate(-1deg)}to{box-shadow:0 0 40px rgba(123,47,255,.7);transform:rotate(1deg)}}
 @keyframes icon-float-red{from{box-shadow:0 0 20px rgba(255,60,60,.4);transform:rotate(-1deg)}to{box-shadow:0 0 40px rgba(255,60,60,.7);transform:rotate(1deg)}}
+@keyframes icon-float-cyan{from{box-shadow:0 0 20px rgba(6,182,212,.4);transform:rotate(-1deg)}to{box-shadow:0 0 40px rgba(6,182,212,.7);transform:rotate(1deg)}}
 .product-meta h2{font-family:'Syne',sans-serif;font-weight:800;font-size:2.4rem;letter-spacing:.04em;color:#fff;line-height:1}
 .product-version{font-size:.7rem;letter-spacing:.15em;color:var(--a2);margin-top:5px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
 .product-version::before{content:'';width:20px;height:1px;background:linear-gradient(90deg,var(--a1),transparent)}
 .product-version-red{color:var(--r3)!important}
 .product-version-red::before{background:linear-gradient(90deg,var(--r2),transparent)!important}
+.product-version-cyan{color:var(--c2)!important}
+.product-version-cyan::before{background:linear-gradient(90deg,var(--c1),transparent)!important}
 .product-desc{font-family:'Syne',sans-serif;font-size:.92rem;line-height:1.8;color:var(--muted);margin-bottom:36px;max-width:580px;position:relative;z-index:1}
 .features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;position:relative;z-index:1}
 .feat{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a2);background:rgba(123,47,255,.08);border:1px solid rgba(123,47,255,.2);border-radius:6px;padding:5px 14px;transition:all .2s}
 .feat:hover{background:rgba(123,47,255,.18);border-color:var(--a1);color:var(--a3)}
 .feat-red{color:var(--r3)!important;background:rgba(255,60,60,.07)!important;border-color:rgba(255,60,60,.2)!important}
+.feat-cyan{color:var(--c3)!important;background:rgba(6,182,212,.07)!important;border-color:rgba(6,182,212,.2)!important}
 .xclient-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:36px;position:relative;z-index:1}
 .xstat{background:rgba(255,30,30,.05);border:1px solid rgba(255,60,60,.15);border-radius:14px;padding:18px 14px;text-align:center;transition:all .25s;position:relative;overflow:hidden}
 .xstat::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,60,60,.4),transparent);transform:scaleX(0);transition:transform .3s}
@@ -120,6 +135,20 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .xstat:hover::before{transform:scaleX(1)}
 .xstat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:.02em;color:var(--r3)}
 .xstat-lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+/* xCleaner stats — cyan */
+.xcleaner-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:36px;position:relative;z-index:1}
+.cstat{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:14px;padding:18px 14px;text-align:center;transition:all .25s;position:relative;overflow:hidden}
+.cstat::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(6,182,212,.4),transparent);transform:scaleX(0);transition:transform .3s}
+.cstat:hover{border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.09)}
+.cstat:hover::before{transform:scaleX(1)}
+.cstat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:.02em;color:var(--c2)}
+.cstat-lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+/* admin badge */
+.admin-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fde68a;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:8px;padding:7px 16px;margin-bottom:28px;position:relative;z-index:1;}
+.admin-badge svg{width:14px;height:14px;flex-shrink:0}
+
 .dl-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;color:#fff;text-decoration:none;background:linear-gradient(135deg,#3a0a8a 0%,#7b2fff 50%,#b06aff 100%);background-size:200% 200%;border:none;border-radius:14px;padding:17px 36px;cursor:none;transition:transform .2s,box-shadow .2s,background-position .4s;box-shadow:0 8px 32px rgba(123,47,255,.5),0 0 0 1px rgba(176,106,255,.2);position:relative;overflow:hidden;animation:btn-gradient 6s ease infinite;}
 .dl-btn::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:left .5s}
 .dl-btn:hover::before{left:150%}
@@ -129,6 +158,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .dl-btn svg{width:20px;height:20px;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(255,255,255,.5))}
 .dl-btn-red{background:linear-gradient(135deg,#5a0000 0%,#c41a1a 50%,#ff3c3c 100%)!important;box-shadow:0 8px 32px rgba(255,60,60,.5),0 0 0 1px rgba(255,80,80,.2)!important}
 .dl-btn-red:hover{box-shadow:0 14px 50px rgba(255,60,60,.65),0 0 0 1px var(--r2)!important}
+.dl-btn-cyan{background:linear-gradient(135deg,#013a40 0%,#0e7490 50%,#22d3ee 100%)!important;box-shadow:0 8px 32px rgba(6,182,212,.5),0 0 0 1px rgba(34,211,238,.2)!important}
+.dl-btn-cyan:hover{box-shadow:0 14px 50px rgba(6,182,212,.65),0 0 0 1px var(--c2)!important;transform:translateY(-3px) scale(1.02)}
 .maintenance-banner{display:none;background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.3);border-radius:16px;padding:28px 32px;margin-bottom:32px;position:relative;z-index:1;animation:fadeUp .4s both;}
 .maintenance-banner.show{display:block}
 .mb-header{display:flex;align-items:center;gap:14px;margin-bottom:10px}
@@ -141,6 +172,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .dl-meta::before{content:'//';color:var(--a1);opacity:.5}
 .dl-meta .hi{color:var(--a2)}
 .dl-meta .hi-red{color:var(--r3)}
+.dl-meta .hi-cyan{color:var(--c2)}
 
 /* STATS ROW */
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px;animation:fadeUp .8s .3s both}
@@ -151,123 +183,41 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.6rem;letter-spacing:.02em;background:linear-gradient(135deg,var(--a2),var(--a1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .stat-label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 
-/* ══════════════════════════════════════
-   W TRAKCIE PRACY — sekcja
-══════════════════════════════════════ */
+/* WIP */
 .wip-section{margin-top:90px;animation:fadeUp .8s .1s both}
-
-/* header sekcji z pulsującym wskaźnikiem */
 .wip-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
 .wip-live-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--o2);border:1px solid rgba(251,191,36,.25);border-radius:99px;padding:5px 16px;background:rgba(245,158,11,.06);}
 .wip-live-dot{width:7px;height:7px;border-radius:50%;background:var(--o1);flex-shrink:0;animation:wip-pulse 1.6s ease infinite;}
-@keyframes wip-pulse{
-  0%{box-shadow:0 0 0 0 rgba(245,158,11,.7);transform:scale(1)}
-  60%{box-shadow:0 0 0 8px rgba(245,158,11,0);transform:scale(1.1)}
-  100%{box-shadow:0 0 0 0 rgba(245,158,11,0);transform:scale(1)}
-}
-
-/* grid kart WIP */
+@keyframes wip-pulse{0%{box-shadow:0 0 0 0 rgba(245,158,11,.7);transform:scale(1)}60%{box-shadow:0 0 0 8px rgba(245,158,11,0);transform:scale(1.1)}100%{box-shadow:0 0 0 0 rgba(245,158,11,0);transform:scale(1)}}
 .wip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-
-/* pojedyncza karta WIP */
-.wip-card{
-  background:rgba(15,11,31,.85);
-  border:1px solid rgba(245,158,11,.15);
-  border-radius:20px;padding:28px 28px 24px;
-  position:relative;overflow:hidden;
-  backdrop-filter:blur(16px);
-  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .3s;
-  animation:wip-card-in .5s cubic-bezier(.16,1,.3,1) both;
-}
+.wip-card{background:rgba(15,11,31,.85);border:1px solid rgba(245,158,11,.15);border-radius:20px;padding:28px 28px 24px;position:relative;overflow:hidden;backdrop-filter:blur(16px);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .3s;animation:wip-card-in .5s cubic-bezier(.16,1,.3,1) both;}
 @keyframes wip-card-in{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.wip-card:hover{
-  transform:translateY(-6px) scale(1.01);
-  border-color:rgba(245,158,11,.4);
-  box-shadow:0 0 60px rgba(245,158,11,.12),0 20px 50px rgba(0,0,0,.4);
-}
-
-/* górna linia – animowany scan */
-.wip-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--o1),var(--o2),transparent);
-  opacity:0;transition:opacity .3s;
-}
+.wip-card:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(245,158,11,.4);box-shadow:0 0 60px rgba(245,158,11,.12),0 20px 50px rgba(0,0,0,.4);}
+.wip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--o1),var(--o2),transparent);opacity:0;transition:opacity .3s;}
 .wip-card:hover::before{opacity:.9}
-
-/* corner glow */
-.wip-card::after{
-  content:'';position:absolute;top:-60px;right:-60px;
-  width:180px;height:180px;
-  background:radial-gradient(circle,rgba(245,158,11,.12) 0%,transparent 70%);
-  pointer-events:none;
-  transition:opacity .35s;
-}
+.wip-card::after{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(245,158,11,.12) 0%,transparent 70%);pointer-events:none;transition:opacity .35s;}
 .wip-card:hover::after{opacity:1.5}
-
-/* pasek postępu u dołu karty */
-.wip-progress-bar-wrap{
-  position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:rgba(245,158,11,.08);overflow:hidden;
-}
-.wip-progress-bar{
-  height:100%;
-  background:linear-gradient(90deg,var(--o1),var(--o2));
-  border-radius:99px;
-  animation:wip-scan 3s ease-in-out infinite;
-  box-shadow:0 0 8px rgba(245,158,11,.6);
-}
-@keyframes wip-scan{
-  0%{width:0%;margin-left:0;opacity:.6}
-  40%{width:60%;margin-left:0;opacity:1}
-  80%{width:20%;margin-left:80%;opacity:.8}
-  100%{width:0%;margin-left:100%;opacity:.4}
-}
-
-/* ikona/emoji projektu */
-.wip-icon{
-  width:52px;height:52px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
-  background:linear-gradient(135deg,rgba(120,60,0,.7),rgba(200,100,0,.4));
-  border:1px solid rgba(245,158,11,.2);
-  margin-bottom:16px;
-  position:relative;z-index:1;
-  transition:transform .3s;box-shadow:0 0 20px rgba(245,158,11,.15);
-}
+.wip-progress-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(245,158,11,.08);overflow:hidden;}
+.wip-progress-bar{height:100%;background:linear-gradient(90deg,var(--o1),var(--o2));border-radius:99px;animation:wip-scan 3s ease-in-out infinite;box-shadow:0 0 8px rgba(245,158,11,.6);}
+@keyframes wip-scan{0%{width:0%;margin-left:0;opacity:.6}40%{width:60%;margin-left:0;opacity:1}80%{width:20%;margin-left:80%;opacity:.8}100%{width:0%;margin-left:100%;opacity:.4}}
+.wip-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(120,60,0,.7),rgba(200,100,0,.4));border:1px solid rgba(245,158,11,.2);margin-bottom:16px;position:relative;z-index:1;transition:transform .3s;box-shadow:0 0 20px rgba(245,158,11,.15);}
 .wip-card:hover .wip-icon{transform:scale(1.08) rotate(2deg)}
-
 .wip-card-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:6px;position:relative;z-index:1;}
 .wip-card-cat{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--o2);margin-bottom:10px;position:relative;z-index:1;}
 .wip-card-desc{font-family:'Syne',sans-serif;font-size:.82rem;color:var(--muted);line-height:1.65;position:relative;z-index:1;margin-bottom:18px}
-
-/* chips statusu */
 .wip-chips{display:flex;flex-wrap:wrap;gap:6px;position:relative;z-index:1}
 .wip-chip{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(251,191,36,.8);background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.18);border-radius:5px;padding:4px 10px}
-
-/* status WIP w rogu */
-.wip-status-tag{
-  position:absolute;top:18px;right:18px;z-index:2;
-  font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  padding:4px 10px;border-radius:99px;
-  color:var(--o3);background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);
-  animation:status-pulse 2.5s ease infinite;
-}
+.wip-status-tag{position:absolute;top:18px;right:18px;z-index:2;font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:99px;color:var(--o3);background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);animation:status-pulse 2.5s ease infinite;}
 @keyframes status-pulse{0%,100%{opacity:1}50%{opacity:.65}}
-
-/* pusty stan */
-.wip-empty{
-  grid-column:1/-1;text-align:center;padding:64px 20px;
-  color:var(--muted);font-family:'Syne',sans-serif;font-size:.9rem;
-}
+.wip-empty{grid-column:1/-1;text-align:center;padding:64px 20px;color:var(--muted);font-family:'Syne',sans-serif;font-size:.9rem;}
 .wip-empty-icon{font-size:2.5rem;margin-bottom:16px;opacity:.4;display:block}
-
-/* loading */
 .wip-loading{display:flex;gap:8px;align-items:center;justify-content:center;padding:40px;color:var(--muted);font-size:.8rem;grid-column:1/-1}
 .wip-loading-dot{width:6px;height:6px;border-radius:50%;background:var(--o1);animation:loading-bounce .9s ease infinite}
 .wip-loading-dot:nth-child(2){animation-delay:.15s}
 .wip-loading-dot:nth-child(3){animation-delay:.3s}
 @keyframes loading-bounce{0%,80%,100%{transform:scale(0.6);opacity:.4}40%{transform:scale(1);opacity:1}}
 
-/* ── PROPOZYCJE FORM ── */
+/* PROPOSALS */
 .proposals-section{margin-top:80px}
 .proposal-form-card{background:var(--glass);border:1px solid rgba(34,197,94,.2);border-radius:24px;padding:40px 48px;position:relative;overflow:hidden;backdrop-filter:blur(20px);}
 .proposal-form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),var(--g2),transparent);opacity:.7}
@@ -295,8 +245,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:32px 0
 .error-msg.show{display:flex}
 .char-count{font-size:.65rem;color:var(--muted);text-align:right;margin-top:4px;font-family:'Syne',sans-serif}
 .char-count.warn{color:var(--r3)}
-
-/* PROPOSALS LIST */
 .proposals-list-wrap{margin-top:40px}
 .proposals-list-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .proposals-list-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--a3)}
@@ -341,7 +289,7 @@ footer{margin-top:70px;padding-top:40px;border-top:1px solid var(--faint);animat
 
 @media(max-width:640px){
   .card,.proposal-form-card{padding:28px 22px}
-  .xclient-stats{grid-template-columns:repeat(2,1fr)}
+  .xclient-stats,.xcleaner-stats{grid-template-columns:repeat(2,1fr)}
   .stats-row{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   nav{flex-direction:column;gap:16px;align-items:flex-start}
@@ -404,9 +352,11 @@ footer{margin-top:70px;padding-top:40px;border-top:1px solid var(--faint);animat
     <div class="tabs-wrap">
       <button class="tab-btn active" onclick="switchTab('xsolution',this)">xSolution</button>
       <button class="tab-btn" onclick="switchTab('xclient',this)">xClient</button>
+      <button class="tab-btn" onclick="switchTab('xcleaner',this)">xCleaner</button>
     </div>
   </div>
 
+  <!-- xSolution -->
   <div class="tab-panel active" id="tab-xsolution">
     <div class="card">
       <div class="card-corner-gfx"></div>
@@ -435,6 +385,7 @@ footer{margin-top:70px;padding-top:40px;border-top:1px solid var(--faint);animat
     </div>
   </div>
 
+  <!-- xClient -->
   <div class="tab-panel" id="tab-xclient">
     <div class="card card-red">
       <div class="card-corner-gfx"></div>
@@ -469,13 +420,58 @@ footer{margin-top:70px;padding-top:40px;border-top:1px solid var(--faint);animat
     </div>
   </div>
 
+  <!-- xCleaner -->
+  <div class="tab-panel" id="tab-xcleaner">
+    <div class="card card-cyan">
+      <div class="card-corner-gfx"></div>
+      <div class="maintenance-banner" id="maint-xcleaner">
+        <div class="mb-header"><span class="mb-icon">🔧</span><span class="mb-title">Tryb konserwacji — pobieranie wyłączone</span></div>
+        <p class="mb-info" id="maint-xcleaner-info">Trwa aktualizacja. Wróć za chwilę.</p>
+      </div>
+      <div class="product-header">
+        <div class="product-icon product-icon-cyan">🧹</div>
+        <div class="product-meta">
+          <h2>xCleaner</h2>
+          <div class="product-version product-version-cyan" id="ver-xcleaner">v1.2 — stable release</div>
+        </div>
+      </div>
+      <p class="product-desc">xCleaner to podstawowy cleaner systemu Windows — usuwa zbędne pliki tymczasowe, pozostałości po instalacjach, śmieci z cache oraz inne niepotrzebne dane spowalniające system. Prosty, szybki i skuteczny. <strong style="color:var(--c3)">Wymaga uruchomienia jako administrator.</strong></p>
+      <div class="xcleaner-stats">
+        <div class="cstat"><div class="cstat-num">Temp</div><div class="cstat-lbl">Files</div></div>
+        <div class="cstat"><div class="cstat-num">Cache</div><div class="cstat-lbl">Cleaner</div></div>
+        <div class="cstat"><div class="cstat-num">Fast</div><div class="cstat-lbl">Scan</div></div>
+        <div class="cstat"><div class="cstat-num">Free</div><div class="cstat-lbl">Space</div></div>
+      </div>
+      <div class="features">
+        <span class="feat feat-cyan">Windows x64</span>
+        <span class="feat feat-cyan">v1.2 Stable</span>
+        <span class="feat feat-cyan">Temp Files</span>
+        <span class="feat feat-cyan">Cache Cleaner</span>
+        <span class="feat feat-cyan">Lightweight</span>
+        <span class="feat feat-cyan">Portable</span>
+      </div>
+      <!-- Admin badge -->
+      <div class="admin-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Uruchom jako Administrator
+      </div>
+      <div id="dl-xcleaner">
+        <a class="dl-btn dl-btn-cyan" id="dl-btn-xcleaner" href="https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.2/xCleaner.exe" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download xCleaner.exe
+        </a>
+        <div class="dl-meta">Release <span class="hi-cyan">v1.2</span> &nbsp;·&nbsp; Windows x64 &nbsp;·&nbsp; Run as Admin</div>
+      </div>
+    </div>
+  </div>
+
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Active Tools</div></div>
-    <div class="stat-box"><div class="stat-num">v1.0</div><div class="stat-label">Latest Release</div></div>
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Active Tools</div></div>
+    <div class="stat-box"><div class="stat-num">v1.2</div><div class="stat-label">Latest Release</div></div>
     <div class="stat-box"><div class="stat-num">2+</div><div class="stat-label">Coming Soon</div></div>
   </div>
 
-  <!-- ══ W TRAKCIE PRACY ══ -->
+  <!-- WIP -->
   <div id="wip" class="wip-section">
     <div class="wip-header">
       <div class="section-label" style="margin-bottom:0">// W trakcie pracy</div>
@@ -582,65 +578,98 @@ db.collection('xWebsite').doc('site').onSnapshot(doc=>{
   else{overlay.classList.remove('show');}
 });
 
-/* ── APP MAINTENANCE ── */
-function applyMaintenance(appId,data){
-  const banner=document.getElementById('maint-'+appId);
-  const infoEl=document.getElementById('maint-'+appId+'-info');
-  const dlBtn=document.getElementById('dl-btn-'+appId);
-  if(!data)return;
+/* ── APP MAINTENANCE (uniwersalna funkcja) ── */
+const APP_DEFAULTS = {
+  xsolution: {
+    downloadUrl: 'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.0/xSolution.exe',
+    label: 'xSolution',
+    btnClass: 'dl-btn',
+    defaultVersion: '1.0'
+  },
+  xclient: {
+    downloadUrl: 'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1/xClient.exe',
+    label: 'xClient',
+    btnClass: 'dl-btn dl-btn-red',
+    defaultVersion: '1.0'
+  },
+  xcleaner: {
+    downloadUrl: 'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.2/xCleaner.exe',
+    label: 'xCleaner',
+    btnClass: 'dl-btn dl-btn-cyan',
+    defaultVersion: '1.2'
+  }
+};
+
+function applyMaintenance(appId, data){
+  const banner  = document.getElementById('maint-'+appId);
+  const infoEl  = document.getElementById('maint-'+appId+'-info');
+  const dlBtn   = document.getElementById('dl-btn-'+appId);
+  const cfg     = APP_DEFAULTS[appId];
+  if(!data || !cfg) return;
+
   if(data.maintenance===true){
     banner.classList.add('show');
-    infoEl.textContent=data.additionalInfo||'Trwa aktualizacja. Wróć za chwilę.';
-    if(dlBtn){const disabled=document.createElement('span');disabled.className='dl-btn-disabled';disabled.id='dl-btn-'+appId+'-disabled';disabled.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Pobieranie wyłączone`;dlBtn.replaceWith(disabled);}
-  }else{
+    infoEl.textContent = data.additionalInfo || 'Trwa aktualizacja. Wróć za chwilę.';
+    if(dlBtn){
+      const disabled = document.createElement('span');
+      disabled.className  = 'dl-btn-disabled';
+      disabled.id         = 'dl-btn-'+appId+'-disabled';
+      disabled.innerHTML  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Pobieranie wyłączone`;
+      dlBtn.replaceWith(disabled);
+    }
+  } else {
     banner.classList.remove('show');
-    const disabledBtn=document.getElementById('dl-btn-'+appId+'-disabled');
-    if(disabledBtn){const link=document.createElement('a');link.className='dl-btn'+(appId==='xclient'?' dl-btn-red':'');link.id='dl-btn-'+appId;link.href=data.downloadUrl||(appId==='xclient'?'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1/xClient.exe':'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.0/xSolution.exe');link.download='';link.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download ${appId==='xclient'?'xClient':'xSolution'}.exe`;disabledBtn.replaceWith(link);}
+    const disabledBtn = document.getElementById('dl-btn-'+appId+'-disabled');
+    if(disabledBtn){
+      const link      = document.createElement('a');
+      link.className  = cfg.btnClass;
+      link.id         = 'dl-btn-'+appId;
+      link.href       = data.downloadUrl || cfg.downloadUrl;
+      link.download   = '';
+      link.innerHTML  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download ${cfg.label}.exe`;
+      disabledBtn.replaceWith(link);
+    }
   }
-  if(data.version){const v=document.getElementById('ver-'+appId);if(v)v.textContent=data.version+' — stable release';}
+  if(data.version){
+    const v = document.getElementById('ver-'+appId);
+    if(v) v.textContent = data.version + ' — stable release';
+  }
 }
-['xSolution','xClient'].forEach(appName=>{
-  const id=appName.toLowerCase();
-  db.collection('xWebsite').doc(appName).onSnapshot(doc=>{
-    if(doc.exists){applyMaintenance(id,doc.data());}
-    else{db.collection('xWebsite').doc(appName).set({maintenance:false,additionalInfo:'',version:'1.0',downloadUrl:''}).catch(()=>{});}
-  },()=>{});
+
+/* Słuchaj zmian dla wszystkich 3 aplikacji */
+['xSolution','xClient','xCleaner'].forEach(appName => {
+  const id = appName.toLowerCase();
+  const cfg = APP_DEFAULTS[id];
+  db.collection('xWebsite').doc(appName).onSnapshot(doc => {
+    if(doc.exists){
+      applyMaintenance(id, doc.data());
+    } else {
+      /* Stwórz domyślny dokument jeśli nie istnieje */
+      db.collection('xWebsite').doc(appName).set({
+        maintenance: false,
+        additionalInfo: '',
+        version: cfg.defaultVersion,
+        downloadUrl: cfg.downloadUrl
+      }).catch(()=>{});
+    }
+  }, ()=>{});
 });
 
-/* ══════════════════════════════════════
-   W TRAKCIE PRACY — real-time listener
-   Kolekcja: wip
-   Pola dokumentu:
-     name     (string)  – nazwa projektu
-     category (string)  – np. "Gaming", "Narzędzia"
-     description (string) – krótki opis
-     icon     (string)  – emoji, np. "🚀"
-     tags     (array)   – np. ["Windows","Beta"]
-     status   (string)  – np. "W trakcie", "Alpha", "Planowane"
-     order    (number)  – kolejność wyświetlania (opcjonalne)
-     visible  (boolean) – true = pokazuj; false = ukryj
-══════════════════════════════════════ */
+/* ── W TRAKCIE PRACY ── */
 db.collection('wip').orderBy('order','asc').onSnapshot(snap=>{
   const grid=document.getElementById('wip-grid');
-  // filtruj ukryte
   const docs=[];
   snap.forEach(doc=>{const d=doc.data();if(d.visible!==false)docs.push(d);});
-
   if(docs.length===0){
     grid.innerHTML='<div class="wip-empty"><span class="wip-empty-icon">🔨</span>Żadnych aktywnych projektów — obserwuj tę przestrzeń!</div>';
     return;
   }
-
   grid.innerHTML='';
   docs.forEach((d,i)=>{
     const card=document.createElement('div');
     card.className='wip-card';
     card.style.animationDelay=(i*0.08)+'s';
-
-    const tagsHtml=(d.tags&&d.tags.length)
-      ?d.tags.map(t=>`<span class="wip-chip">${esc(t)}</span>`).join('')
-      :'';
-
+    const tagsHtml=(d.tags&&d.tags.length)?d.tags.map(t=>`<span class="wip-chip">${esc(t)}</span>`).join(''):'';
     card.innerHTML=`
       <div class="wip-status-tag">${esc(d.status||'W trakcie')}</div>
       <div class="wip-icon">${esc(d.icon||'⚙️')}</div>
@@ -652,21 +681,15 @@ db.collection('wip').orderBy('order','asc').onSnapshot(snap=>{
     `;
     grid.appendChild(card);
   });
-
-  // dodaj hovering cursor do nowych kart
   grid.querySelectorAll('.wip-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
     el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
   });
-
-  // fallback – jeśli kolekcja wip nie istnieje, utwórz przykładowy dokument
 },(err)=>{
   console.warn('WIP collection error:',err);
-  // Próba stworzenia kolekcji z przykładem przy błędzie uprawnień (możliwe że pusta)
   document.getElementById('wip-grid').innerHTML='<div class="wip-empty"><span class="wip-empty-icon">🔨</span>Żadnych aktywnych projektów — obserwuj tę przestrzeń!</div>';
 });
 
-/* Auto-tworzenie przykładowego dokumentu w kolekcji wip jeśli nie istnieje */
 db.collection('wip').limit(1).get().then(snap=>{
   if(snap.empty){
     db.collection('wip').add({
@@ -729,7 +752,7 @@ const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cu
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
 (function animC(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animC);})();
-document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.form-input,.form-textarea,.form-select').forEach(el=>{
+document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.cstat,.form-input,.form-textarea,.form-select').forEach(el=>{
   el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
   el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
 });
@@ -737,54 +760,4 @@ document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.form-input,.form-tex
 /* ── TRAIL ── */
 const trailC=document.createElement('canvas');trailC.style.cssText='position:fixed;inset:0;z-index:5;pointer-events:none';document.body.appendChild(trailC);
 const tCtx=trailC.getContext('2d');
-function resT(){trailC.width=window.innerWidth;trailC.height=window.innerHeight;}resT();window.addEventListener('resize',resT);
-const trail=[];let lx=0,ly=0;
-document.addEventListener('mousemove',e=>{
-  const dx=e.clientX-lx,dy=e.clientY-ly,spd=Math.sqrt(dx*dx+dy*dy);lx=e.clientX;ly=e.clientY;
-  const cnt=Math.min(Math.floor(spd*.6)+1,5);
-  for(let i=0;i<cnt;i++){const a=Math.random()*Math.PI*2;trail.push({x:e.clientX+(Math.random()-.5)*4,y:e.clientY+(Math.random()-.5)*4,r:Math.random()*2.5+.8,a:.9,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2-.4,h:270+Math.random()*60-30,type:'p'});}
-  if(spd>8){for(let i=0;i<2;i++){trail.push({x:e.clientX+(Math.random()-.5)*16,y:e.clientY+(Math.random()-.5)*16,r:Math.random()*1.5+.5,a:1,vx:(Math.random()-.5)*2.5,vy:(Math.random()-.5)*2.5-1,h:200+Math.random()*120,type:'s'});}}
-});
-(function tl(){
-  tCtx.clearRect(0,0,trailC.width,trailC.height);
-  for(let i=trail.length-1;i>=0;i--){const p=trail[i];p.a-=p.type==='s'?.018:.022;p.x+=p.vx;p.y+=p.vy;p.r*=.97;if(p.a<=0){trail.splice(i,1);continue;}
-    if(p.type==='s'){tCtx.save();tCtx.translate(p.x,p.y);tCtx.fillStyle=`hsla(${p.h},90%,80%,${p.a})`;const s=p.r*2.5;tCtx.beginPath();tCtx.moveTo(0,-s);tCtx.lineTo(s*.25,-.25*s);tCtx.lineTo(s,0);tCtx.lineTo(.25*s,.25*s);tCtx.lineTo(0,s);tCtx.lineTo(-.25*s,.25*s);tCtx.lineTo(-s,0);tCtx.lineTo(-.25*s,-.25*s);tCtx.closePath();tCtx.shadowBlur=8;tCtx.shadowColor=`hsla(${p.h},90%,80%,.5)`;tCtx.fill();tCtx.restore();}
-    else{tCtx.beginPath();tCtx.arc(p.x,p.y,p.r,0,Math.PI*2);tCtx.fillStyle=`hsla(${p.h},75%,78%,${p.a})`;tCtx.shadowBlur=p.r*3;tCtx.shadowColor=`hsla(${p.h},80%,70%,${p.a*.5})`;tCtx.fill();tCtx.shadowBlur=0;}}
-  requestAnimationFrame(tl);
-})();
-
-/* ── BG CANVAS ── */
-(function(){
-  const c=document.getElementById('bg-canvas'),ctx=c.getContext('2d');let W,H;
-  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}resize();window.addEventListener('resize',resize);
-  const stars=[];for(let i=0;i<180;i++){stars.push({x:Math.random()*2000,y:Math.random()*1200,r:Math.random()*1.4+.2,a:Math.random(),da:(Math.random()-.5)*.005,s:Math.random()*.5+.3});}
-  const blobs=[{x:.15,y:.15,r:500,c:'rgba(80,20,200,'},{x:.85,y:.75,r:380,c:'rgba(150,40,255,'},{x:.5,y:.4,r:320,c:'rgba(40,10,120,'}];
-  const hexes=[];for(let i=0;i<8;i++){hexes.push({x:Math.random()*2000,y:Math.random()*1200,size:Math.random()*30+10,a:0,speed:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.1,alpha:Math.random()*.08+.02});}
-  function draw(){ctx.clearRect(0,0,W,H);blobs.forEach(b=>{const g=ctx.createRadialGradient(b.x*W,b.y*H,0,b.x*W,b.y*H,b.r);g.addColorStop(0,b.c+'0.18)');g.addColorStop(1,b.c+'0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x*W,b.y*H,b.r,0,Math.PI*2);ctx.fill();});ctx.strokeStyle='rgba(123,47,255,0.035)';ctx.lineWidth=1;const gs=70;for(let x=0;x<W+gs;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}for(let y=0;y<H+gs;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}hexes.forEach(h=>{h.x+=h.speed;h.y+=h.vy;h.a+=.005;if(h.x>W+50)h.x=-50;if(h.x<-50)h.x=W+50;if(h.y>H+50)h.y=-50;if(h.y<-50)h.y=H+50;ctx.save();ctx.translate(h.x,h.y);ctx.rotate(h.a);ctx.strokeStyle=`rgba(123,47,255,${h.alpha})`;ctx.lineWidth=1;ctx.beginPath();for(let i=0;i<6;i++){const ang=i*Math.PI/3-Math.PI/6;i===0?ctx.moveTo(Math.cos(ang)*h.size,Math.sin(ang)*h.size):ctx.lineTo(Math.cos(ang)*h.size,Math.sin(ang)*h.size);}ctx.closePath();ctx.stroke();ctx.restore();});stars.forEach(s=>{s.a+=s.da;if(s.a>1||s.a<0)s.da*=-1;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(224,170,255,${s.a*s.s})`;ctx.fill();});requestAnimationFrame(draw);}draw();
-})();
-
-/* ── MAINTENANCE CANVAS ── */
-let maintCanvasInit=false;
-function initMaintCanvas(){
-  if(maintCanvasInit)return;maintCanvasInit=true;
-  const c=document.getElementById('maint-canvas'),ctx=c.getContext('2d');
-  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}resize();window.addEventListener('resize',resize);
-  const pts=[];for(let i=0;i<120;i++){pts.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.2+.2,a:Math.random(),da:(Math.random()-.5)*.006,s:Math.random()*.4+.2});}
-  (function loop(){ctx.clearRect(0,0,c.width,c.height);const g=ctx.createRadialGradient(c.width/2,c.height/2,0,c.width/2,c.height/2,c.width*.7);g.addColorStop(0,'rgba(60,10,160,.25)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);pts.forEach(p=>{p.a+=p.da;if(p.a>1||p.a<0)p.da*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(176,106,255,${p.a*p.s})`;ctx.fill();});requestAnimationFrame(loop);})();
-}
-
-/* ── TABS ── */
-function switchTab(id,btn){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active','active-red'));
-  document.getElementById('tab-'+id).classList.add('active');
-  btn.classList.add(id==='xclient'?'active-red':'active');
-}
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click',e=>{const r=document.createElement('span');r.className='ripple';const rect=btn.getBoundingClientRect(),s=Math.max(rect.width,rect.height);r.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-rect.left-s/2}px;top:${e.clientY-rect.top-s/2}px`;btn.appendChild(r);setTimeout(()=>r.remove(),700);});
-});
-const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){e.target.style.animation=`fadeUp .6s ${i*.07}s both`;obs.unobserve(e.target);}});},{threshold:.1});
-document.querySelectorAll('.stat-box,.feat,.xstat').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+function resT(){trailC.width=window.innerWidth;trailC.height=window.innerHeight;}resT();window.
