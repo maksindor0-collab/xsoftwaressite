@@ -15,6 +15,7 @@
   --g1:#22c55e;--g2:#4ade80;
   --o1:#f59e0b;--o2:#fbbf24;--o3:#fde68a;
   --c1:#06b6d4;--c2:#22d3ee;--c3:#a5f3fc;
+  --n1:#0d9488;--n2:#14b8a6;--n3:#99f6e4;
   --mesh1:rgba(123,47,255,0.06);--mesh2:rgba(6,182,212,0.04);--mesh3:rgba(255,60,60,0.03);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -96,6 +97,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .tab-btn.active{color:var(--a3);border-color:var(--a1);background:rgba(123,47,255,.12);box-shadow:0 0 20px rgba(123,47,255,.25),inset 0 0 16px rgba(123,47,255,.07)}
 .tab-btn.active-red{color:var(--r3)!important;border-color:var(--r2)!important;background:rgba(255,60,60,.1)!important;box-shadow:0 0 20px rgba(255,60,60,.25),inset 0 0 16px rgba(255,60,60,.07)!important}
 .tab-btn.active-cyan{color:var(--c3)!important;border-color:var(--c2)!important;background:rgba(6,182,212,.1)!important;box-shadow:0 0 20px rgba(6,182,212,.25),inset 0 0 16px rgba(6,182,212,.07)!important}
+.tab-btn.active-teal{color:var(--n3)!important;border-color:var(--n2)!important;background:rgba(13,148,136,.1)!important;box-shadow:0 0 20px rgba(13,148,136,.25),inset 0 0 16px rgba(13,148,136,.07)!important}
 .tab-panel{display:none;animation:panelIn .45s cubic-bezier(.16,1,.3,1) both}
 .tab-panel.active{display:block}
 @keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -132,15 +134,27 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .card-cyan::after{background:radial-gradient(ellipse 55% 35% at 92% 8%,rgba(6,182,212,.1),transparent),radial-gradient(ellipse 40% 40% at 8% 92%,rgba(0,180,200,.04),transparent)}
 .card-cyan:hover{box-shadow:0 0 70px rgba(6,182,212,.18),0 20px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06)!important}
 .card-cyan .card-corner-gfx{background:radial-gradient(circle,rgba(6,182,212,.18) 0%,transparent 65%)}
+/* ── TEAL CARD (xNetwork) ── */
+.card-teal{
+  background:linear-gradient(160deg,rgba(2,18,16,.95) 0%,rgba(8,8,26,.9) 60%)!important;
+  border-color:rgba(13,148,136,.25)!important;
+  box-shadow:0 4px 40px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+.card-teal::before{background:linear-gradient(90deg,transparent 0%,var(--n1) 30%,var(--n2) 60%,transparent 100%)}
+.card-teal::after{background:radial-gradient(ellipse 55% 35% at 92% 8%,rgba(13,148,136,.1),transparent),radial-gradient(ellipse 40% 40% at 8% 92%,rgba(0,160,140,.04),transparent)}
+.card-teal:hover{box-shadow:0 0 70px rgba(13,148,136,.18),0 20px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06)!important}
+.card-teal .card-corner-gfx{background:radial-gradient(circle,rgba(13,148,136,.18) 0%,transparent 65%)}
 
 .product-header{display:flex;align-items:center;gap:22px;margin-bottom:28px;position:relative;z-index:1}
 .product-icon{width:68px;height:68px;border-radius:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,#3a0a8a,#7b2fff);box-shadow:0 0 28px rgba(123,47,255,.45),inset 0 1px 0 rgba(255,255,255,.12);position:relative;overflow:hidden;animation:icon-float 4.5s ease infinite alternate}
 .product-icon::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 50%)}
 .product-icon-red{background:linear-gradient(135deg,#5a0000,#c41a1a)!important;box-shadow:0 0 28px rgba(255,60,60,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-red 4.5s ease infinite alternate!important}
 .product-icon-cyan{background:linear-gradient(135deg,#013a40,#0e7490)!important;box-shadow:0 0 28px rgba(6,182,212,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-cyan 4.5s ease infinite alternate!important}
+.product-icon-teal{background:linear-gradient(135deg,#022e28,#0d6b5e)!important;box-shadow:0 0 28px rgba(13,148,136,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-teal 4.5s ease infinite alternate!important}
 @keyframes icon-float{from{box-shadow:0 0 18px rgba(123,47,255,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(123,47,255,.65);transform:rotate(1deg)}}
 @keyframes icon-float-red{from{box-shadow:0 0 18px rgba(255,60,60,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(255,60,60,.65);transform:rotate(1deg)}}
 @keyframes icon-float-cyan{from{box-shadow:0 0 18px rgba(6,182,212,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(6,182,212,.65);transform:rotate(1deg)}}
+@keyframes icon-float-teal{from{box-shadow:0 0 18px rgba(13,148,136,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(13,148,136,.65);transform:rotate(1deg)}}
 .product-meta h2{font-family:'Syne',sans-serif;font-weight:800;font-size:2.3rem;letter-spacing:.04em;color:#fff;line-height:1}
 .product-version{font-size:.7rem;letter-spacing:.15em;color:var(--a2);margin-top:5px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
 .product-version::before{content:'';width:18px;height:1px;background:linear-gradient(90deg,var(--a1),transparent)}
@@ -148,14 +162,17 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .product-version-red::before{background:linear-gradient(90deg,var(--r2),transparent)!important}
 .product-version-cyan{color:var(--c2)!important}
 .product-version-cyan::before{background:linear-gradient(90deg,var(--c1),transparent)!important}
+.product-version-teal{color:var(--n2)!important}
+.product-version-teal::before{background:linear-gradient(90deg,var(--n1),transparent)!important}
 .product-desc{font-family:'Syne',sans-serif;font-size:.9rem;line-height:1.85;color:var(--muted);margin-bottom:32px;max-width:560px;position:relative;z-index:1}
 .features{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px;position:relative;z-index:1}
 .feat{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a2);background:rgba(123,47,255,.07);border:1px solid rgba(123,47,255,.18);border-radius:6px;padding:4px 12px;transition:all .2s}
 .feat:hover{background:rgba(123,47,255,.16);border-color:var(--a1);color:var(--a3)}
 .feat-red{color:var(--r3)!important;background:rgba(255,60,60,.06)!important;border-color:rgba(255,60,60,.18)!important}
 .feat-cyan{color:var(--c3)!important;background:rgba(6,182,212,.06)!important;border-color:rgba(6,182,212,.18)!important}
+.feat-teal{color:var(--n3)!important;background:rgba(13,148,136,.06)!important;border-color:rgba(13,148,136,.2)!important}
 
-.xclient-stats,.xcleaner-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px;position:relative;z-index:1}
+.xclient-stats,.xcleaner-stats,.xnetwork-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px;position:relative;z-index:1}
 .xstat{background:rgba(255,30,30,.04);border:1px solid rgba(255,60,60,.12);border-radius:12px;padding:16px 12px;text-align:center;transition:all .25s}
 .xstat:hover{border-color:rgba(255,60,60,.35);background:rgba(255,60,60,.08)}
 .xstat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:.02em;color:var(--r3)}
@@ -164,6 +181,10 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .cstat:hover{border-color:rgba(6,182,212,.35);background:rgba(6,182,212,.08)}
 .cstat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:.02em;color:var(--c2)}
 .cstat-lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.nstat{background:rgba(13,148,136,.04);border:1px solid rgba(13,148,136,.14);border-radius:12px;padding:16px 12px;text-align:center;transition:all .25s}
+.nstat:hover{border-color:rgba(13,148,136,.38);background:rgba(13,148,136,.09)}
+.nstat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:.02em;color:var(--n2)}
+.nstat-lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:2px}
 
 .admin-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fde68a;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:8px;padding:6px 14px;margin-bottom:26px;position:relative;z-index:1;}
 .admin-badge svg{width:13px;height:13px;flex-shrink:0}
@@ -179,6 +200,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .dl-btn-red:hover{box-shadow:0 12px 44px rgba(255,60,60,.6),0 0 0 1px var(--r2)!important}
 .dl-btn-cyan{background:linear-gradient(135deg,#013a40 0%,#0e7490 50%,#22d3ee 100%)!important;box-shadow:0 6px 28px rgba(6,182,212,.45),0 0 0 1px rgba(34,211,238,.18)!important}
 .dl-btn-cyan:hover{box-shadow:0 12px 44px rgba(6,182,212,.6),0 0 0 1px var(--c2)!important}
+.dl-btn-teal{background:linear-gradient(135deg,#022e28 0%,#0d9488 50%,#14b8a6 100%)!important;box-shadow:0 6px 28px rgba(13,148,136,.45),0 0 0 1px rgba(20,184,166,.18)!important}
+.dl-btn-teal:hover{box-shadow:0 12px 44px rgba(13,148,136,.6),0 0 0 1px var(--n2)!important}
 
 .maintenance-banner{display:none;background:rgba(255,140,0,.06);border:1px solid rgba(255,140,0,.25);border-radius:14px;padding:24px 28px;margin-bottom:28px;position:relative;z-index:1;animation:fadeUp .4s both;}
 .maintenance-banner.show{display:block}
@@ -193,6 +216,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .dl-meta .hi{color:var(--a2)}
 .dl-meta .hi-red{color:var(--r3)}
 .dl-meta .hi-cyan{color:var(--c2)}
+.dl-meta .hi-teal{color:var(--n2)}
 
 /* STATS ROW */
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;animation:fadeUp .8s .3s both}
@@ -304,7 +328,7 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
 
 @media(max-width:640px){
   .card,.proposal-form-card{padding:26px 20px}
-  .xclient-stats,.xcleaner-stats{grid-template-columns:repeat(2,1fr)}
+  .xclient-stats,.xcleaner-stats,.xnetwork-stats{grid-template-columns:repeat(2,1fr)}
   .stats-row{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   nav{flex-direction:column;gap:14px;align-items:flex-start}
@@ -367,6 +391,7 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
       <button class="tab-btn active" onclick="switchTab('xsolution',this)">xSolution</button>
       <button class="tab-btn" onclick="switchTab('xclient',this)">xClient</button>
       <button class="tab-btn" onclick="switchTab('xcleaner',this)">xCleaner</button>
+      <button class="tab-btn" onclick="switchTab('xnetwork',this)">xNetwork</button>
     </div>
   </div>
 
@@ -478,8 +503,48 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
     </div>
   </div>
 
+  <!-- xNetwork -->
+  <div class="tab-panel" id="tab-xnetwork">
+    <div class="card card-teal">
+      <div class="card-corner-gfx"></div>
+      <div class="maintenance-banner" id="maint-xnetwork">
+        <div class="mb-header"><span class="mb-icon">🔧</span><span class="mb-title">Tryb konserwacji — pobieranie wyłączone</span></div>
+        <p class="mb-info" id="maint-xnetwork-info">Trwa aktualizacja. Wróć za chwilę.</p>
+      </div>
+      <div class="product-header">
+        <div class="product-icon product-icon-teal">🌐</div>
+        <div class="product-meta">
+          <h2>xNetwork</h2>
+          <div class="product-version product-version-teal" id="ver-xnetwork">v1.0 — stable release</div>
+        </div>
+      </div>
+      <p class="product-desc">xNetwork to narzędzie od xSoftwares do zarządzania połączeniem internetowym — monitoruj sieć, optymalizuj ustawienia i miej pełną kontrolę nad swoim łączem. Szybkie, lekkie i intuicyjne.</p>
+      <div class="xnetwork-stats">
+        <div class="nstat"><div class="nstat-num">Monitor</div><div class="nstat-lbl">Network</div></div>
+        <div class="nstat"><div class="nstat-num">Speed</div><div class="nstat-lbl">Optimizer</div></div>
+        <div class="nstat"><div class="nstat-num">Live</div><div class="nstat-lbl">Stats</div></div>
+        <div class="nstat"><div class="nstat-num">Light</div><div class="nstat-lbl">Weight</div></div>
+      </div>
+      <div class="features">
+        <span class="feat feat-teal">Windows x64</span>
+        <span class="feat feat-teal">v1.0 Stable</span>
+        <span class="feat feat-teal">Network Monitor</span>
+        <span class="feat feat-teal">Speed Optimizer</span>
+        <span class="feat feat-teal">Lightweight</span>
+        <span class="feat feat-teal">Portable</span>
+      </div>
+      <div id="dl-xnetwork">
+        <a class="dl-btn dl-btn-teal" id="dl-btn-xnetwork" href="https://github.com/maksindor0-collab/xsoftwaressite/releases/download/3/xNetwork.exe" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download xNetwork.exe
+        </a>
+        <div class="dl-meta">Release <span class="hi-teal">v1.0</span> &nbsp;·&nbsp; Windows x64 &nbsp;·&nbsp; Portable</div>
+      </div>
+    </div>
+  </div>
+
   <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Active Tools</div></div>
+    <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Active Tools</div></div>
     <div class="stat-box"><div class="stat-num">v1.2</div><div class="stat-label">Latest Release</div></div>
     <div class="stat-box"><div class="stat-num">2+</div><div class="stat-label">Coming Soon</div></div>
   </div>
@@ -576,16 +641,16 @@ const firebaseConfig={apiKey:"AIzaSyC_H4piWUqI7f7xkUAZsWNO8jfynd5pVPM",authDomai
 firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
 
-/* ── IP HELPER ── */
 async function getUserIP(){try{const r=await fetch('https://api.ipify.org?format=json');const d=await r.json();return d.ip||'unknown';}catch{return'unknown';}}
 
 /* ── TABS ── */
 function switchTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active','active-red','active-cyan');});
+  document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active','active-red','active-cyan','active-teal');});
   document.getElementById('tab-'+id).classList.add('active');
   if(id==='xclient') btn.classList.add('active-red');
   else if(id==='xcleaner') btn.classList.add('active-cyan');
+  else if(id==='xnetwork') btn.classList.add('active-teal');
   else btn.classList.add('active');
 }
 
@@ -602,7 +667,8 @@ db.collection('xWebsite').doc('site').onSnapshot(doc=>{
 const APP_DEFAULTS={
   xsolution:{downloadUrl:'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.0/xSolution.exe',label:'xSolution',btnClass:'dl-btn',defaultVersion:'1.0'},
   xclient:{downloadUrl:'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1/xClient.exe',label:'xClient',btnClass:'dl-btn dl-btn-red',defaultVersion:'1.0'},
-  xcleaner:{downloadUrl:'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.2/xCleaner.exe',label:'xCleaner',btnClass:'dl-btn dl-btn-cyan',defaultVersion:'1.2'}
+  xcleaner:{downloadUrl:'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/v1.2/xCleaner.exe',label:'xCleaner',btnClass:'dl-btn dl-btn-cyan',defaultVersion:'1.2'},
+  xnetwork:{downloadUrl:'https://github.com/maksindor0-collab/xsoftwaressite/releases/download/3/xNetwork.exe',label:'xNetwork',btnClass:'dl-btn dl-btn-teal',defaultVersion:'1.0'}
 };
 
 function applyMaintenance(appId,data){
@@ -634,7 +700,7 @@ function applyMaintenance(appId,data){
   if(data.version){const v=document.getElementById('ver-'+appId);if(v)v.textContent=data.version+' — stable release';}
 }
 
-['xSolution','xClient','xCleaner'].forEach(appName=>{
+['xSolution','xClient','xCleaner','xNetwork'].forEach(appName=>{
   const id=appName.toLowerCase();
   const cfg=APP_DEFAULTS[id];
   db.collection('xWebsite').doc(appName).onSnapshot(doc=>{
@@ -717,43 +783,19 @@ db.collection('proposals').orderBy('createdAt','desc').limit(50).onSnapshot(snap
 },(err)=>{console.warn(err);});
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-/* ── CURSOR FIX ── */
+/* ── CURSOR ── */
 const dot=document.getElementById('cursor-dot');
 const ring=document.getElementById('cursor-ring');
 let mx=-200,my=-200,rx=-200,ry=-200,cursorVisible=false;
-
 document.addEventListener('mousemove',e=>{
   mx=e.clientX;my=e.clientY;
   dot.style.left=mx+'px';dot.style.top=my+'px';
-  if(!cursorVisible){
-    cursorVisible=true;
-    dot.classList.add('visible');
-    ring.classList.add('visible');
-  }
+  if(!cursorVisible){cursorVisible=true;dot.classList.add('visible');ring.classList.add('visible');}
 },{ passive: true });
-
-document.addEventListener('mouseleave',()=>{
-  dot.classList.remove('visible');
-  ring.classList.remove('visible');
-  cursorVisible=false;
-});
-
-document.addEventListener('mouseenter',()=>{
-  if(cursorVisible){
-    dot.classList.add('visible');
-    ring.classList.add('visible');
-  }
-});
-
-(function animC(){
-  rx+=(mx-rx)*.13;
-  ry+=(my-ry)*.13;
-  ring.style.left=Math.round(rx)+'px';
-  ring.style.top=Math.round(ry)+'px';
-  requestAnimationFrame(animC);
-})();
-
-document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.cstat,.form-input,.form-textarea,.form-select').forEach(el=>{
+document.addEventListener('mouseleave',()=>{dot.classList.remove('visible');ring.classList.remove('visible');cursorVisible=false;});
+document.addEventListener('mouseenter',()=>{if(cursorVisible){dot.classList.add('visible');ring.classList.add('visible');}});
+(function animC(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';requestAnimationFrame(animC);})();
+document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.cstat,.nstat,.form-input,.form-textarea,.form-select').forEach(el=>{
   el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
   el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
 });
@@ -764,28 +806,20 @@ trailC.style.cssText='position:fixed;inset:0;z-index:5;pointer-events:none';
 document.body.appendChild(trailC);
 const tCtx=trailC.getContext('2d');
 function resT(){trailC.width=window.innerWidth;trailC.height=window.innerHeight;}
-resT();
-window.addEventListener('resize',resT);
-
+resT();window.addEventListener('resize',resT);
 const particles=[];
 document.addEventListener('mousemove',e=>{
-  if(Math.random()<0.35){
-    particles.push({x:e.clientX,y:e.clientY,life:1,size:Math.random()*2.5+1,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2});
-  }
+  if(Math.random()<0.35){particles.push({x:e.clientX,y:e.clientY,life:1,size:Math.random()*2.5+1,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2});}
 },{passive:true});
-
 (function animP(){
   tCtx.clearRect(0,0,trailC.width,trailC.height);
   for(let i=particles.length-1;i>=0;i--){
-    const p=particles[i];
-    p.life-=0.045;p.x+=p.vx;p.y+=p.vy;
+    const p=particles[i];p.life-=0.045;p.x+=p.vx;p.y+=p.vy;
     if(p.life<=0){particles.splice(i,1);continue;}
-    tCtx.globalAlpha=p.life*0.55;
-    tCtx.fillStyle=`rgba(168,85,247,${p.life})`;
+    tCtx.globalAlpha=p.life*0.55;tCtx.fillStyle=`rgba(168,85,247,${p.life})`;
     tCtx.beginPath();tCtx.arc(p.x,p.y,p.size*p.life,0,Math.PI*2);tCtx.fill();
   }
-  tCtx.globalAlpha=1;
-  requestAnimationFrame(animP);
+  tCtx.globalAlpha=1;requestAnimationFrame(animP);
 })();
 </script>
 </body>
