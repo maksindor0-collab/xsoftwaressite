@@ -98,6 +98,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .tab-btn.active-red{color:var(--r3)!important;border-color:var(--r2)!important;background:rgba(255,60,60,.1)!important;box-shadow:0 0 20px rgba(255,60,60,.25),inset 0 0 16px rgba(255,60,60,.07)!important}
 .tab-btn.active-cyan{color:var(--c3)!important;border-color:var(--c2)!important;background:rgba(6,182,212,.1)!important;box-shadow:0 0 20px rgba(6,182,212,.25),inset 0 0 16px rgba(6,182,212,.07)!important}
 .tab-btn.active-teal{color:var(--n3)!important;border-color:var(--n2)!important;background:rgba(13,148,136,.1)!important;box-shadow:0 0 20px rgba(13,148,136,.25),inset 0 0 16px rgba(13,148,136,.07)!important}
+/* restricted area tab style */
+.tab-btn.active-gold{color:var(--o3)!important;border-color:var(--o2)!important;background:rgba(245,158,11,.12)!important;box-shadow:0 0 20px rgba(245,158,11,.25),inset 0 0 16px rgba(245,158,11,.07)!important}
 .tab-panel{display:none;animation:panelIn .45s cubic-bezier(.16,1,.3,1) both}
 .tab-panel.active{display:block}
 @keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -145,16 +147,29 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .card-teal:hover{box-shadow:0 0 70px rgba(13,148,136,.18),0 20px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06)!important}
 .card-teal .card-corner-gfx{background:radial-gradient(circle,rgba(13,148,136,.18) 0%,transparent 65%)}
 
+/* Restricted area card */
+.card-gold{
+  background:linear-gradient(160deg,rgba(20,15,2,.95) 0%,rgba(10,8,26,.9) 60%)!important;
+  border-color:rgba(245,158,11,.25)!important;
+  box-shadow:0 4px 40px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+.card-gold::before{background:linear-gradient(90deg,transparent 0%,var(--o1) 30%,var(--o2) 60%,transparent 100%)}
+.card-gold::after{background:radial-gradient(ellipse 55% 35% at 92% 8%,rgba(245,158,11,.08),transparent),radial-gradient(ellipse 40% 40% at 8% 92%,rgba(245,158,11,.03),transparent)}
+.card-gold:hover{box-shadow:0 0 70px rgba(245,158,11,.18),0 20px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06)!important}
+.card-gold .card-corner-gfx{background:radial-gradient(circle,rgba(245,158,11,.18) 0%,transparent 65%)}
+
 .product-header{display:flex;align-items:center;gap:22px;margin-bottom:28px;position:relative;z-index:1}
 .product-icon{width:68px;height:68px;border-radius:18px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,#3a0a8a,#7b2fff);box-shadow:0 0 28px rgba(123,47,255,.45),inset 0 1px 0 rgba(255,255,255,.12);position:relative;overflow:hidden;animation:icon-float 4.5s ease infinite alternate}
 .product-icon::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 50%)}
 .product-icon-red{background:linear-gradient(135deg,#5a0000,#c41a1a)!important;box-shadow:0 0 28px rgba(255,60,60,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-red 4.5s ease infinite alternate!important}
 .product-icon-cyan{background:linear-gradient(135deg,#013a40,#0e7490)!important;box-shadow:0 0 28px rgba(6,182,212,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-cyan 4.5s ease infinite alternate!important}
 .product-icon-teal{background:linear-gradient(135deg,#022e28,#0d6b5e)!important;box-shadow:0 0 28px rgba(13,148,136,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-teal 4.5s ease infinite alternate!important}
+.product-icon-gold{background:linear-gradient(135deg,#5c3a00,#b45309)!important;box-shadow:0 0 28px rgba(245,158,11,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;animation:icon-float-gold 4.5s ease infinite alternate!important}
 @keyframes icon-float{from{box-shadow:0 0 18px rgba(123,47,255,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(123,47,255,.65);transform:rotate(1deg)}}
 @keyframes icon-float-red{from{box-shadow:0 0 18px rgba(255,60,60,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(255,60,60,.65);transform:rotate(1deg)}}
 @keyframes icon-float-cyan{from{box-shadow:0 0 18px rgba(6,182,212,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(6,182,212,.65);transform:rotate(1deg)}}
 @keyframes icon-float-teal{from{box-shadow:0 0 18px rgba(13,148,136,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(13,148,136,.65);transform:rotate(1deg)}}
+@keyframes icon-float-gold{from{box-shadow:0 0 18px rgba(245,158,11,.4);transform:rotate(-1deg)}to{box-shadow:0 0 36px rgba(245,158,11,.65);transform:rotate(1deg)}}
 .product-meta h2{font-family:'Syne',sans-serif;font-weight:800;font-size:2.3rem;letter-spacing:.04em;color:#fff;line-height:1}
 .product-version{font-size:.7rem;letter-spacing:.15em;color:var(--a2);margin-top:5px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
 .product-version::before{content:'';width:18px;height:1px;background:linear-gradient(90deg,var(--a1),transparent)}
@@ -164,6 +179,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .product-version-cyan::before{background:linear-gradient(90deg,var(--c1),transparent)!important}
 .product-version-teal{color:var(--n2)!important}
 .product-version-teal::before{background:linear-gradient(90deg,var(--n1),transparent)!important}
+.product-version-gold{color:var(--o2)!important}
+.product-version-gold::before{background:linear-gradient(90deg,var(--o1),transparent)!important}
 .product-desc{font-family:'Syne',sans-serif;font-size:.9rem;line-height:1.85;color:var(--muted);margin-bottom:32px;max-width:560px;position:relative;z-index:1}
 .features{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px;position:relative;z-index:1}
 .feat{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a2);background:rgba(123,47,255,.07);border:1px solid rgba(123,47,255,.18);border-radius:6px;padding:4px 12px;transition:all .2s}
@@ -171,6 +188,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .feat-red{color:var(--r3)!important;background:rgba(255,60,60,.06)!important;border-color:rgba(255,60,60,.18)!important}
 .feat-cyan{color:var(--c3)!important;background:rgba(6,182,212,.06)!important;border-color:rgba(6,182,212,.18)!important}
 .feat-teal{color:var(--n3)!important;background:rgba(13,148,136,.06)!important;border-color:rgba(13,148,136,.2)!important}
+.feat-gold{color:var(--o3)!important;background:rgba(245,158,11,.06)!important;border-color:rgba(245,158,11,.2)!important}
 
 .xclient-stats,.xcleaner-stats,.xnetwork-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px;position:relative;z-index:1}
 .xstat{background:rgba(255,30,30,.04);border:1px solid rgba(255,60,60,.12);border-radius:12px;padding:16px 12px;text-align:center;transition:all .25s}
@@ -323,6 +341,65 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
 .status-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:6px;animation:pulse-green 2s infinite}
 @keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
 
+/* ── RESTRICTED AREA MODAL & CONTENT ── */
+.pin-modal-overlay{
+  position:fixed;inset:0;z-index:99999;background:rgba(6,5,14,.88);
+  backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;
+}
+.pin-modal-overlay.show{display:flex}
+.pin-modal{
+  background:linear-gradient(160deg, rgba(17,14,38,.96) 0%, rgba(11,8,28,.94) 100%);
+  border:1px solid var(--border);border-radius:24px;padding:36px 40px;
+  max-width:400px;width:90%;box-shadow:0 20px 48px rgba(0,0,0,.6),0 0 0 1px rgba(168,85,247,.15);
+  text-align:center;animation:fadeUp .3s cubic-bezier(.16,1,.3,1) both;
+}
+.pin-modal-icon{font-size:2.4rem;margin-bottom:12px;}
+.pin-modal-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:#fff;margin-bottom:6px;}
+.pin-modal-sub{font-size:.8rem;color:var(--muted);margin-bottom:24px;}
+.pin-input{
+  width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(168,85,247,.2);
+  border-radius:12px;color:#fff;font-family:'Fira Code',monospace;font-size:1rem;
+  padding:14px 18px;text-align:center;outline:none;transition:border .2s;letter-spacing:.1em;
+  cursor:text; /* cursor visible in input */
+}
+.pin-input:focus{border-color:var(--a1);box-shadow:0 0 0 3px rgba(123,47,255,.15);}
+.pin-error{color:var(--r3);font-size:.78rem;margin-top:10px;display:none;}
+.pin-btn{
+  display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-weight:700;
+  font-size:.9rem;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#3a0a8a,#7b2fff);
+  border:none;border-radius:12px;padding:14px 32px;margin-top:20px;cursor:none;
+  transition:transform .2s,box-shadow .2s;box-shadow:0 6px 22px rgba(123,47,255,.4);
+}
+.pin-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(123,47,255,.6);}
+
+#restricted-content{
+  display:none;margin-top:60px;animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both;
+}
+.restricted-header{
+  text-align:center;margin-bottom:40px;
+}
+.restricted-header h2{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);
+  background:linear-gradient(135deg,#fde68a,var(--o1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.restricted-header p{
+  font-size:.85rem;color:var(--muted);margin-top:8px;
+}
+.restricted-tabs{display:flex;gap:8px;margin-bottom:32px;justify-content:center;flex-wrap:wrap;}
+.restricted-tab-btn{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 22px;
+  cursor:none;transition:all .25s;
+}
+.restricted-tab-btn:hover{color:var(--o2);border-color:var(--o2);background:rgba(245,158,11,.06);}
+.restricted-tab-btn.active-gold{
+  color:var(--o3)!important;border-color:var(--o2)!important;
+  background:rgba(245,158,11,.12)!important;box-shadow:0 0 20px rgba(245,158,11,.25),inset 0 0 16px rgba(245,158,11,.07)!important;
+}
+.restricted-panel{display:none;animation:panelIn .45s cubic-bezier(.16,1,.3,1) both;}
+.restricted-panel.active{display:block;}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
 
@@ -355,6 +432,18 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
   </div>
 </div>
 
+<!-- PIN MODAL -->
+<div class="pin-modal-overlay" id="pin-modal-overlay">
+  <div class="pin-modal">
+    <div class="pin-modal-icon">🔐</div>
+    <div class="pin-modal-title">Restricted Area</div>
+    <div class="pin-modal-sub">Wprowadź PIN, aby uzyskać dostęp</div>
+    <input type="password" class="pin-input" id="pin-input" placeholder="PIN" maxlength="30"/>
+    <div class="pin-error" id="pin-error">Nieprawidłowy PIN</div>
+    <button class="pin-btn" id="pin-submit-btn">Odblokuj</button>
+  </div>
+</div>
+
 <div class="wrap">
 
   <nav>
@@ -363,6 +452,7 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
       <a href="#downloads">Downloads</a>
       <a href="#wip">W&nbsp;trakcie</a>
       <a href="#propozycje">Propozycje</a>
+      <a href="#" id="restricted-area-link" onclick="event.preventDefault(); openRestrictedModal();">Restricted Area</a>
       <a href="https://dcd.gg/xsoftwares" target="_blank" class="dc">
         <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="vertical-align:middle;margin-right:5px"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
         Discord
@@ -539,6 +629,63 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
           Download xNetwork.exe
         </a>
         <div class="dl-meta">Release <span class="hi-teal">v1.0</span> &nbsp;·&nbsp; Windows x64 &nbsp;·&nbsp; Portable</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESTRICTED AREA (hidden until PIN correct) -->
+  <div id="restricted-content">
+    <div class="restricted-header">
+      <h2>🔒 Restricted Area</h2>
+      <p>Dostęp wyłącznie dla upoważnionych użytkowników</p>
+    </div>
+    <div class="restricted-tabs" id="restricted-tabs">
+      <button class="restricted-tab-btn active-gold" onclick="switchRestrictedTab('gemini-bypass',this)">Gemini Bypass</button>
+      <button class="restricted-tab-btn" onclick="switchRestrictedTab('roblox-scripts',this)">Roblox Scripts</button>
+      <button class="restricted-tab-btn" onclick="switchRestrictedTab('roblox-executors',this)">Roblox Executors</button>
+    </div>
+
+    <!-- Gemini Bypass panel -->
+    <div class="restricted-panel active" id="restricted-gemini-bypass">
+      <div class="card card-gold">
+        <div class="card-corner-gfx"></div>
+        <div class="product-header">
+          <div class="product-icon product-icon-gold">🤖</div>
+          <div class="product-meta">
+            <h2>Gemini Bypass</h2>
+            <div class="product-version product-version-gold">Model 3.1 Flash-Lite</div>
+          </div>
+        </div>
+        <p class="product-desc">
+          Aby obejście działało poprawnie, należy używać modelu <strong style="color:var(--o2);">3.1 Flash-Lite</strong>.
+          Poniższy prompt jest wymagany do aktywacji trybu.
+        </p>
+        <div class="admin-badge" style="color:#fde68a; background:rgba(245,158,11,.08); border-color:rgba(245,158,11,.22);">
+          ⚠️ Treść promptu została usunięta ze względów bezpieczeństwa
+        </div>
+        <div class="features" style="margin-top:20px;">
+          <span class="feat feat-gold">Flash-Lite</span>
+          <span class="feat feat-gold">Polish Output</span>
+          <span class="feat feat-gold">No Refusal</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roblox Scripts panel -->
+    <div class="restricted-panel" id="restricted-roblox-scripts">
+      <div class="card card-gold" style="text-align:center; padding:60px 30px;">
+        <div class="product-icon product-icon-gold" style="margin:0 auto 20px;">📜</div>
+        <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:#fff;">Soon</h2>
+        <p style="color:var(--muted); margin-top:10px;">Sekcja w przygotowaniu.</p>
+      </div>
+    </div>
+
+    <!-- Roblox Executors panel -->
+    <div class="restricted-panel" id="restricted-roblox-executors">
+      <div class="card card-gold" style="text-align:center; padding:60px 30px;">
+        <div class="product-icon product-icon-gold" style="margin:0 auto 20px;">⚡</div>
+        <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:#fff;">Soon</h2>
+        <p style="color:var(--muted); margin-top:10px;">Sekcja w przygotowaniu.</p>
       </div>
     </div>
   </div>
@@ -783,6 +930,59 @@ db.collection('proposals').orderBy('createdAt','desc').limit(50).onSnapshot(snap
 },(err)=>{console.warn(err);});
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
+/* ── RESTRICTED AREA LOGIC ── */
+const CORRECT_PIN = "xSoftwaresAREA";
+const pinOverlay = document.getElementById('pin-modal-overlay');
+const pinInput = document.getElementById('pin-input');
+const pinError = document.getElementById('pin-error');
+const restrictedContent = document.getElementById('restricted-content');
+
+function openRestrictedModal() {
+  if (restrictedContent.style.display === 'block') return; // already unlocked
+  pinOverlay.classList.add('show');
+  pinInput.value = '';
+  pinError.style.display = 'none';
+  setTimeout(() => pinInput.focus(), 100);
+}
+
+function closePinModal() {
+  pinOverlay.classList.remove('show');
+}
+
+document.getElementById('pin-submit-btn').addEventListener('click', () => {
+  const entered = pinInput.value.trim();
+  if (entered === CORRECT_PIN) {
+    pinError.style.display = 'none';
+    closePinModal();
+    restrictedContent.style.display = 'block';
+    // scroll to restricted area
+    restrictedContent.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    pinError.style.display = 'block';
+    pinInput.value = '';
+    pinInput.focus();
+  }
+});
+
+pinInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    document.getElementById('pin-submit-btn').click();
+  }
+});
+
+// Close modal on overlay click
+pinOverlay.addEventListener('click', (e) => {
+  if (e.target === pinOverlay) closePinModal();
+});
+
+// Restricted tabs switching
+function switchRestrictedTab(tabId, btn) {
+  document.querySelectorAll('.restricted-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.restricted-tab-btn').forEach(b => b.classList.remove('active-gold'));
+  document.getElementById('restricted-' + tabId).classList.add('active');
+  btn.classList.add('active-gold');
+}
+
 /* ── CURSOR ── */
 const dot=document.getElementById('cursor-dot');
 const ring=document.getElementById('cursor-ring');
@@ -795,7 +995,7 @@ document.addEventListener('mousemove',e=>{
 document.addEventListener('mouseleave',()=>{dot.classList.remove('visible');ring.classList.remove('visible');cursorVisible=false;});
 document.addEventListener('mouseenter',()=>{if(cursorVisible){dot.classList.add('visible');ring.classList.add('visible');}});
 (function animC(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';requestAnimationFrame(animC);})();
-document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.cstat,.nstat,.form-input,.form-textarea,.form-select').forEach(el=>{
+document.querySelectorAll('a,button,.feat,.stat-box,.xstat,.cstat,.nstat,.form-input,.form-textarea,.form-select,.restricted-tab-btn').forEach(el=>{
   el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
   el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
 });
