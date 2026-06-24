@@ -98,7 +98,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0
 .tab-btn.active-red{color:var(--r3)!important;border-color:var(--r2)!important;background:rgba(255,60,60,.1)!important;box-shadow:0 0 20px rgba(255,60,60,.25),inset 0 0 16px rgba(255,60,60,.07)!important}
 .tab-btn.active-cyan{color:var(--c3)!important;border-color:var(--c2)!important;background:rgba(6,182,212,.1)!important;box-shadow:0 0 20px rgba(6,182,212,.25),inset 0 0 16px rgba(6,182,212,.07)!important}
 .tab-btn.active-teal{color:var(--n3)!important;border-color:var(--n2)!important;background:rgba(13,148,136,.1)!important;box-shadow:0 0 20px rgba(13,148,136,.25),inset 0 0 16px rgba(13,148,136,.07)!important}
-/* restricted area tab style */
 .tab-btn.active-gold{color:var(--o3)!important;border-color:var(--o2)!important;background:rgba(245,158,11,.12)!important;box-shadow:0 0 20px rgba(245,158,11,.25),inset 0 0 16px rgba(245,158,11,.07)!important}
 .tab-panel{display:none;animation:panelIn .45s cubic-bezier(.16,1,.3,1) both}
 .tab-panel.active{display:block}
@@ -360,7 +359,7 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
   width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(168,85,247,.2);
   border-radius:12px;color:#fff;font-family:'Fira Code',monospace;font-size:1rem;
   padding:14px 18px;text-align:center;outline:none;transition:border .2s;letter-spacing:.1em;
-  cursor:text; /* cursor visible in input */
+  cursor:text;
 }
 .pin-input:focus{border-color:var(--a1);box-shadow:0 0 0 3px rgba(123,47,255,.15);}
 .pin-error{color:var(--r3);font-size:.78rem;margin-top:10px;display:none;}
@@ -633,7 +632,7 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
     </div>
   </div>
 
-  <!-- RESTRICTED AREA (hidden until PIN correct) -->
+  <!-- RESTRICTED AREA (dynamiczne treści z Firestore) -->
   <div id="restricted-content">
     <div class="restricted-header">
       <h2>🔒 Restricted Area</h2>
@@ -645,7 +644,7 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
       <button class="restricted-tab-btn" onclick="switchRestrictedTab('roblox-executors',this)">Roblox Executors</button>
     </div>
 
-    <!-- Gemini Bypass panel -->
+    <!-- Gemini Bypass panel (dynamic) -->
     <div class="restricted-panel active" id="restricted-gemini-bypass">
       <div class="card card-gold">
         <div class="card-corner-gfx"></div>
@@ -656,12 +655,9 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
             <div class="product-version product-version-gold">Model 3.1 Flash-Lite</div>
           </div>
         </div>
-        <p class="product-desc">
-          Aby obejście działało poprawnie, należy używać modelu <strong style="color:var(--o2);">3.1 Flash-Lite</strong>.
-          Poniższy prompt jest wymagany do aktywacji trybu.
-        </p>
-        <div class="admin-badge" style="color:#fde68a; background:rgba(245,158,11,.08); border-color:rgba(245,158,11,.22);">
-          ⚠️ Treść promptu została usunięta ze względów bezpieczeństwa
+        <div class="product-desc" id="dyn-gemini-content">Ładowanie...</div>
+        <div class="admin-badge" id="dyn-gemini-prompt" style="color:#fde68a; background:rgba(245,158,11,.08); border-color:rgba(245,158,11,.22);">
+          Prompt nie został jeszcze ustawiony.
         </div>
         <div class="features" style="margin-top:20px;">
           <span class="feat feat-gold">Flash-Lite</span>
@@ -671,18 +667,18 @@ footer{margin-top:66px;padding-top:36px;border-top:1px solid rgba(255,255,255,.0
       </div>
     </div>
 
-    <!-- Roblox Scripts panel -->
+    <!-- Roblox Scripts panel (dynamic) -->
     <div class="restricted-panel" id="restricted-roblox-scripts">
-      <div class="card card-gold" style="text-align:center; padding:60px 30px;">
+      <div class="card card-gold" id="dyn-roblox-scripts-card" style="text-align:center; padding:60px 30px;">
         <div class="product-icon product-icon-gold" style="margin:0 auto 20px;">📜</div>
         <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:#fff;">Soon</h2>
         <p style="color:var(--muted); margin-top:10px;">Sekcja w przygotowaniu.</p>
       </div>
     </div>
 
-    <!-- Roblox Executors panel -->
+    <!-- Roblox Executors panel (dynamic) -->
     <div class="restricted-panel" id="restricted-roblox-executors">
-      <div class="card card-gold" style="text-align:center; padding:60px 30px;">
+      <div class="card card-gold" id="dyn-roblox-executors-card" style="text-align:center; padding:60px 30px;">
         <div class="product-icon product-icon-gold" style="margin:0 auto 20px;">⚡</div>
         <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:#fff;">Soon</h2>
         <p style="color:var(--muted); margin-top:10px;">Sekcja w przygotowaniu.</p>
@@ -880,11 +876,7 @@ db.collection('wip').orderBy('order','asc').onSnapshot(snap=>{
   document.getElementById('wip-grid').innerHTML='<div class="wip-empty"><span class="wip-empty-icon">🔨</span>Żadnych aktywnych projektów — obserwuj tę przestrzeń!</div>';
 });
 
-db.collection('wip').limit(1).get().then(snap=>{
-  if(snap.empty){db.collection('wip').add({name:'xUpdate',category:'Narzędzia systemowe',description:'Automatyczny updater dla wszystkich produktów xSoftwares.',icon:'🔄',tags:['Windows','Alpha'],status:'W trakcie',order:1,visible:true}).catch(()=>{});}
-});
-
-/* ── PROPOSALS SUBMIT ── */
+/* ── PROPOSALS ── */
 async function submitProposal(){
   const name=document.getElementById('prop-name').value.trim();
   const cat=document.getElementById('prop-cat').value;
@@ -912,7 +904,6 @@ function resetBtn(){document.getElementById('submit-btn').innerHTML=`<svg viewBo
 function showError(msg){const e=document.getElementById('error-msg');document.getElementById('error-text').textContent=msg;e.classList.add('show');}
 document.getElementById('prop-desc').addEventListener('input',function(){const l=this.value.length;const el=document.getElementById('desc-count');el.textContent=l+' / 500';el.classList.toggle('warn',l>450);});
 
-/* ── PROPOSALS LIST ── */
 const STATUS_LABELS={pending:'⏳ Oczekuje',accepted:'✅ Zaakceptowano',rejected:'❌ Odrzucono'};
 db.collection('proposals').orderBy('createdAt','desc').limit(50).onSnapshot(snap=>{
   const list=document.getElementById('props-list');
@@ -930,7 +921,7 @@ db.collection('proposals').orderBy('createdAt','desc').limit(50).onSnapshot(snap
 },(err)=>{console.warn(err);});
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-/* ── RESTRICTED AREA LOGIC ── */
+/* ── RESTRICTED AREA (DYNAMIC) ── */
 const CORRECT_PIN = "xSoftwaresAREA";
 const pinOverlay = document.getElementById('pin-modal-overlay');
 const pinInput = document.getElementById('pin-input');
@@ -938,7 +929,7 @@ const pinError = document.getElementById('pin-error');
 const restrictedContent = document.getElementById('restricted-content');
 
 function openRestrictedModal() {
-  if (restrictedContent.style.display === 'block') return; // already unlocked
+  if (restrictedContent.style.display === 'block') return;
   pinOverlay.classList.add('show');
   pinInput.value = '';
   pinError.style.display = 'none';
@@ -955,7 +946,6 @@ document.getElementById('pin-submit-btn').addEventListener('click', () => {
     pinError.style.display = 'none';
     closePinModal();
     restrictedContent.style.display = 'block';
-    // scroll to restricted area
     restrictedContent.scrollIntoView({ behavior: 'smooth' });
   } else {
     pinError.style.display = 'block';
@@ -965,23 +955,58 @@ document.getElementById('pin-submit-btn').addEventListener('click', () => {
 });
 
 pinInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    document.getElementById('pin-submit-btn').click();
-  }
+  if (e.key === 'Enter') document.getElementById('pin-submit-btn').click();
 });
 
-// Close modal on overlay click
 pinOverlay.addEventListener('click', (e) => {
   if (e.target === pinOverlay) closePinModal();
 });
 
-// Restricted tabs switching
 function switchRestrictedTab(tabId, btn) {
   document.querySelectorAll('.restricted-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.restricted-tab-btn').forEach(b => b.classList.remove('active-gold'));
   document.getElementById('restricted-' + tabId).classList.add('active');
   btn.classList.add('active-gold');
 }
+
+// Nasłuchiwanie na zmiany w Firestore i aktualizacja treści
+db.collection('xWebsite').doc('restrictedArea').onSnapshot(doc => {
+  const d = doc.exists ? doc.data() : {};
+
+  // Gemini Bypass
+  const geminiContentEl = document.getElementById('dyn-gemini-content');
+  if (geminiContentEl) {
+    geminiContentEl.innerHTML = d.geminiBypassContent || '<p>Brak treści (ustaw w panelu admina).</p>';
+  }
+  const geminiPromptEl = document.getElementById('dyn-gemini-prompt');
+  if (geminiPromptEl) {
+    geminiPromptEl.textContent = d.geminiBypassPrompt || 'Prompt nie został jeszcze ustawiony.';
+  }
+
+  // Roblox Scripts
+  const scriptsCard = document.getElementById('dyn-roblox-scripts-card');
+  if (scriptsCard) {
+    if (d.robloxScriptsContent) {
+      scriptsCard.innerHTML = d.robloxScriptsContent;
+    } else {
+      scriptsCard.innerHTML = `<div class="product-icon product-icon-gold" style="margin:0 auto 20px;">📜</div>
+        <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:#fff;">Soon</h2>
+        <p style="color:var(--muted); margin-top:10px;">Sekcja w przygotowaniu.</p>`;
+    }
+  }
+
+  // Roblox Executors
+  const executorsCard = document.getElementById('dyn-roblox-executors-card');
+  if (executorsCard) {
+    if (d.robloxExecutorsContent) {
+      executorsCard.innerHTML = d.robloxExecutorsContent;
+    } else {
+      executorsCard.innerHTML = `<div class="product-icon product-icon-gold" style="margin:0 auto 20px;">⚡</div>
+        <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:#fff;">Soon</h2>
+        <p style="color:var(--muted); margin-top:10px;">Sekcja w przygotowaniu.</p>`;
+    }
+  }
+});
 
 /* ── CURSOR ── */
 const dot=document.getElementById('cursor-dot');
